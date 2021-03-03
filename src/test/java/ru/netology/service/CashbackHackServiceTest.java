@@ -30,4 +30,28 @@ public class CashbackHackServiceTest {
 
         assertEquals(expected, actual);
     }
+
+    @org.junit.jupiter.api.Test
+    public void shouldBoundaryAmountJunit5() {
+        int amount = 1000;
+        int expected = 0;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void shouldCashBackUnderBoundaryJunit5() {
+        int amount = 900;
+        int expected = 100;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void shouldCashBackOverBoundaryJunit5() {
+        int amount = 1200;
+        int expected = 800;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
 }
